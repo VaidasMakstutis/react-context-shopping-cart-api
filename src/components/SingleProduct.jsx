@@ -1,8 +1,10 @@
 import React from "react";
+import { useCart } from "../contexts/CartContext";
 import { Card } from "react-bootstrap";
 
-const SingleProduct = ({ prod, cart, setCart }) => {
-  console.log(cart);
+const SingleProduct = ({ prod }) => {
+  const { cart, setCart } = useCart();
+
   return (
     <Card className="products">
       <img src={prod.image} alt={prod.name} />
@@ -12,7 +14,7 @@ const SingleProduct = ({ prod, cart, setCart }) => {
       </div>
       {cart.includes(prod) ? (
         <button
-          className="add btn btn-danger"
+          className="btn btn-danger"
           onClick={() => {
             setCart(cart.filter(c => c.id !== prod.id));
           }}
@@ -21,7 +23,7 @@ const SingleProduct = ({ prod, cart, setCart }) => {
         </button>
       ) : (
         <button
-          className="add btn btn-primary"
+          className="btn btn-primary"
           onClick={() => {
             setCart([...cart, prod]);
           }}

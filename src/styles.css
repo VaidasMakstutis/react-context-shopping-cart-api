@@ -46,13 +46,3 @@
   justify-content: space-between;
   padding: 5px;
 }
-
-.add {
-  padding: 5px;
-  margin-bottom: 5px;
-}
-
-.remove {
-  background-color: grey;
-  color: white;
-}

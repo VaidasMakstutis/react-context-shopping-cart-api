@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useCart } from "../contexts/CartContext";
 import SingleProduct from "./SingleProduct";
 
-const Cart = ({ cart, setCart }) => {
+const CartComponent = () => {
+  const { cart } = useCart();
   const [total, setTotal] = useState();
 
   useEffect(() => {
@@ -15,11 +17,11 @@ const Cart = ({ cart, setCart }) => {
       <span style={{ fontSize: 30 }}>Total: ${total}</span>
       <div className="productsContainer">
         {cart.map(prod => (
-          <SingleProduct prod={prod} key={prod.id} cart={cart} setCart={setCart} />
+          <SingleProduct prod={prod} key={prod.id} />
         ))}
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default CartComponent;

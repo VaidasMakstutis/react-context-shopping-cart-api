@@ -1,8 +1,11 @@
 import React from "react";
+import { useCart } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 import "../styles.css";
 
-const Header = ({ cart }) => {
+const Header = () => {
+  const { cart } = useCart();
+
   return (
     <div>
       <h2 className="header">React Context API</h2>
@@ -11,7 +14,7 @@ const Header = ({ cart }) => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/cart">Cart({cart.length})</Link>
+          <Link to="/cart">Cart ({cart.length})</Link>
         </li>
       </ul>
     </div>
